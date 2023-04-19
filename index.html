@@ -1,0 +1,23 @@
+<html>
+  <head>
+<link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+ 
+  </head>
+  <body>       <py-config>
+        packages = ["numpy", "matplotlib"]
+      </py-config>
+    <py-script>
+    import numpy as np
+from time import time
+t0=time()
+np.random.seed(51)
+v=np.random.rand(5000,5000)
+for i in range(10):
+    v = np.fft.fft(v)
+t1=time()-t0
+print("time taken")
+print(t1,np.abs(np.log(v[0][0]))==42.1940063608479)
+    </py-script>
+  </body>
+</html>
